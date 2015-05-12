@@ -30,8 +30,8 @@
 		return ($hasil);
 	}
 
-	function updatekpok($kode_kpok, $uname_userkpok, $nama_kpok, $jenis_kpok, $jumlah_kpok, $harga_kpok, $note_kpok){
-		$sql="UPDATE tb_kpok SET  uname_userkpok='$uname_userkpok',nama_kpok='$nama_kpok', jenis_kpok='$jenis_kpok', jumlah_kpok='$jumlah_kpok', harga_kpok='$harga_kpok', note_kpok='$note_kpok'
+	function updatekpok($kode_kpok, $nama_kpok, $jenis_kpok, $jumlah_kpok, $harga_kpok, $note_kpok){
+		$sql="UPDATE tb_kpok SET  nama_kpok='$nama_kpok', jenis_kpok='$jenis_kpok', jumlah_kpok='$jumlah_kpok', harga_kpok='$harga_kpok', note_kpok='$note_kpok'
 		WHERE kode_kpok='$kode_kpok' ";
 		$hasil=mysql_query($sql);
 	}
@@ -43,11 +43,12 @@
 	}
 
 
-
+// ///////////////////////////////////////////////
 //------ fungsi kebutuhan sekond------
-	function tambahksek($kode_ksek, $nama_ksek, $jenis_ksek, $jumlah_ksek, $harga_ksek, $note_ksek){
-		$sql="INSERT INTO tb_ksek(kode_ksek,nama_ksek,jenis_ksek,jumlah_ksek,harga_ksek,note_ksek)
-				VALUES('$kode_ksek','$nama_ksek','$jenis_ksek','$jumlah_ksek','$harga_ksek','$note_ksek')";
+// ///////////////////////////////////////////////
+	function tambahksek($kode_ksek, $uname_userksek,$nama_ksek, $jenis_ksek, $jumlah_ksek, $harga_ksek, $note_ksek){
+		$sql="INSERT INTO tb_ksek(kode_ksek,uname_userksek,nama_ksek,jenis_ksek,jumlah_ksek,harga_ksek,note_ksek)
+				VALUES('$kode_ksek','$uname_userksek','$nama_ksek','$jenis_ksek','$jumlah_ksek','$harga_ksek','$note_ksek')";
 		$hasil=mysql_query($sql);
 		return ($hasil);
 	}

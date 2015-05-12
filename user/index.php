@@ -74,7 +74,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 					</select></td>
 				</tr>	
 				<tr>
-					<td>nama</td>
+					<td>namakeb</td>
 					<td><input type="text" name="nama_kpok"></td>
 				</tr>
 				<tr>
@@ -132,21 +132,25 @@ $user=mysql_fetch_object($sql_ngambil_user);
 			<table>
 				<tr>
 					<td>kpok</td>
-					<td><input type="text" name="kode_ksek"></td>
+					<td><input type="text" name="kode_ksek" disabled=""></td>
 				</tr>	
 				<tr>
-					<td>nama</td>
-					<td><input type="text" name="nama_ksek"></td>
+					<!-- user -->
+					<td><input type="hidden" name="uname_userksek" value="<?php echo $user->uname_user;?>"></td>
 				</tr>
 				<tr>
 					<td>jenis</td>
 					<td>
 					<select name="jenis_ksek">
-						<option value="no">--</option>
+						<option value="No">--</option>
 						<option value="pakaian">pakaian</option>
 						<option value="kampus">kampus</option>
 					</select></td>
 				</tr>	
+				<tr>
+					<td>namakeb</td>
+					<td><input type="text" name="nama_ksek"></td>
+				</tr>
 				<tr>
 					<td>jumlah</td>
 					<td><input type="text" name="jumlah_ksek"></td>

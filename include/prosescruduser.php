@@ -33,11 +33,14 @@
 	header("location:../user/index.php");
 	}
 
+	//////////////////
 	// ksek
+	//////////////////
 
 	if (isset($_POST['tambahksek'])){
 		tambahksek(
 			$_POST['kode_ksek'],
+			$_POST['uname_userksek'],
 			$_POST['nama_ksek'],
 			$_POST['jenis_ksek'],
 			$_POST['jumlah_ksek'],

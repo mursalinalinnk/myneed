@@ -55,8 +55,8 @@ $user=mysql_fetch_object($sql_ngambil_user);
 		<form action="../include/prosescruduser.php" method="POST">
 			<table>
 				<tr>
-					<td>kpok</td>
-					<td><input type="text" name="kode_kpok" disabled=""></td>
+					<td>kode kpok</td>
+					<td><input type="text" name="kode_kpok" placeholder="hanya untuk hapus/update"></td>
 				</tr>	
 				<tr>
 					<!-- user -->
@@ -75,7 +75,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 				</tr>	
 				<tr>
 					<td>namakeb</td>
-					<td><input type="text" name="nama_kpok"></td>
+					<td><input type="text" name="nama_kpok" ></td>
 				</tr>
 				<tr>
 					<td>jumlah</td>
@@ -131,8 +131,8 @@ $user=mysql_fetch_object($sql_ngambil_user);
 		<form action="../include/prosescruduser.php" method="POST">
 			<table>
 				<tr>
-					<td>kpok</td>
-					<td><input type="text" name="kode_ksek" disabled=""></td>
+					<td>kode ksek</td>
+					<td><input type="text" name="kode_ksek" placeholder="hanya untuk hapus/update"></td>
 				</tr>	
 				<tr>
 					<!-- user -->

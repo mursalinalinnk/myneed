@@ -3,7 +3,7 @@
 
  
 session_start();
-include "koneksi.php";
+include "config.php";
 
 //menggunakan metode isset
 
@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
 			$hasil = mysql_fetch_array($cek_user);
 			// simpan session user
 			$_SESSION['username']= $_POST['username'];
-			header("location:admin/indexadmin.php");
+			header("location:../admin/index.php");
 		}else{
 			echo "ada yang salah";
 		}
@@ -30,13 +30,13 @@ if (isset($_POST['login'])) {
 			$hasil = mysql_fetch_array($cek_user);
 			// simpan session user
 			$_SESSION['username']= $_POST['username'];
-			header("location:user/indexuser.php");
+			header("location:../user/index.php");
 		}else{
 			echo "ada yang salah";
 		}
 	}
 	if ($sebagai == 'guest') {
-			header("location:guest/indexguest.php");
+			header("location:../guest/indexguest.php");
 		
 	}
 }

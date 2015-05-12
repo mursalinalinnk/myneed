@@ -1,7 +1,7 @@
 <?php
 // <!-- 1 fungsi crud -->
 
-include "../koneksi.php";
+include "../include/config.php";
 
 function tambahuser($kode_user, $uname_user, $pass_user){
 	$sql="INSERT INTO tb_user(kode_user,uname_user,pass_user,regestration_Date)

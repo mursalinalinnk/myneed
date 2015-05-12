@@ -1,11 +1,11 @@
 <?php
 
 
-	include "../koneksi.php";
+	include "../include/config.php";
 //------ fungsi kebutuhan pokok------
-	function tambahkpok($kode_kpok, $nama_kpok, $jenis_kpok, $jumlah_kpok, $harga_kpok, $note_kpok){
-		$sql="INSERT INTO tb_kpok(kode_kpok,nama_kpok,jenis_kpok,jumlah_kpok,harga_kpok,note_kpok)
-				VALUES('$kode_kpok','$nama_kpok','$jenis_kpok','$jumlah_kpok','$harga_kpok','$note_kpok')";
+	function tambahkpok($kode_kpok, $uname_userkpok, $nama_kpok, $jenis_kpok, $jumlah_kpok, $harga_kpok, $note_kpok){
+		$sql="INSERT INTO tb_kpok(kode_kpok,uname_userkpok,nama_kpok,jenis_kpok,jumlah_kpok,harga_kpok,note_kpok)
+				VALUES('$kode_kpok','$uname_userkpok','$nama_kpok','$jenis_kpok','$jumlah_kpok','$harga_kpok','$note_kpok')";
 		$hasil=mysql_query($sql);
 		return ($hasil);
 	}
@@ -13,7 +13,7 @@
 	function tampilkpok(){
 		// nanti tambahlan berdasarkan kode user
 		// $data=array();
-		$sql="SELECT * FROM tb_kpok";
+		$sql="SELECT * FROM tb_kpok WHERE uname_userkpok = '$_SESSION[username]' ";
 			$hasil=mysql_query($sql);
 			while ($row=mysql_fetch_array($hasil)) {
 			echo "
@@ -30,8 +30,8 @@
 		return ($hasil);
 	}
 
-	function updatekpok($kode_kpok, $nama_kpok, $jenis_kpok, $jumlah_kpok, $harga_kpok, $note_kpok){
-		$sql="UPDATE tb_kpok SET  nama_kpok='$nama_kpok', jenis_kpok='$jenis_kpok', jumlah_kpok='$jumlah_kpok', harga_kpok='$harga_kpok', note_kpok='$note_kpok'
+	function updatekpok($kode_kpok, $uname_userkpok, $nama_kpok, $jenis_kpok, $jumlah_kpok, $harga_kpok, $note_kpok){
+		$sql="UPDATE tb_kpok SET  uname_userkpok='$uname_userkpok',nama_kpok='$nama_kpok', jenis_kpok='$jenis_kpok', jumlah_kpok='$jumlah_kpok', harga_kpok='$harga_kpok', note_kpok='$note_kpok'
 		WHERE kode_kpok='$kode_kpok' ";
 		$hasil=mysql_query($sql);
 	}
@@ -56,7 +56,7 @@
 	function tampilksek(){
 	// nanti tambahlan berdasarkan kode user
 	// $data=array();
-	$sql="SELECT * FROM tb_ksek";
+	$sql="SELECT * FROM tb_ksek WHERE uname_userksek = '$_SESSION[username]'";
 		$hasil=mysql_query($sql);
 		while ($row=mysql_fetch_array($hasil)) {
 		echo "

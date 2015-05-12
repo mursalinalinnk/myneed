@@ -1,10 +1,11 @@
 <?php
 
 session_start();
+include "../include/config.php";
 //cek apakah user sudah login
-if(!isset($_SESSION['username'])){
-    die("Anda belum login");//jika belum login jangan lanjut..
-}
+
+$sql_ngambil_user = mysql_query( "SELECT * FROM tb_user WHERE uname_user = '$_SESSION[username]' ");
+$user=mysql_fetch_object($sql_ngambil_user);
 //cek level user
 // if($_SESSION['sebagai']!="mahasiswa"){ die("Anda bukan mahasiswa");}//jika bukan admin jangan lanjut
 
@@ -12,13 +13,12 @@ if(!isset($_SESSION['username'])){
 
 <html>
 <head>
-<title>user</title>
+<title></title>
 </head>
 <body>
-	<button><a href="../logout.php">logout</a></button>
-	<?php echo "<h3>MY need : ".$_SESSION['username']."</h3>";?>
-	<?php echo "<h3>MY need : ".$_SESSION['kode_user']."</h3>";?>
+	<button><a href="../include/logout.php">logout</a></button>
 
+	<h3>nama : <?php echo $user->uname_user;?></h3>
 	<!-- read kebutuhan pokok -->
 	<div style="float:left;padding: 0 50px;">
 	<center>
@@ -35,7 +35,7 @@ if(!isset($_SESSION['username'])){
 			</tr>
 			<?php
 
-			include "fungsi_user.php";
+			include "../function/fungsi_user.php";
 			tampilkpok();
 			?>
 
@@ -43,7 +43,7 @@ if(!isset($_SESSION['username'])){
 
 		<h3>total harga:<?php
 		
-			$sql="SELECT SUM(harga_kpok) AS total FROM tb_kpok"; 
+			$sql="SELECT SUM(harga_kpok) AS total FROM tb_kpok WHERE uname_userkpok = '$_SESSION[username]'"; 
 			$hasil = mysql_query($sql); 
 			$r=mysql_fetch_assoc($hasil); 
 			echo $r['total'];
@@ -52,16 +52,16 @@ if(!isset($_SESSION['username'])){
 		
 
 		<h2>tambah kebutuhan bulanan</h2>
-		<form action="prosescruduser.php" method="POST">
+		<form action="../include/prosescruduser.php" method="POST">
 			<table>
 				<tr>
 					<td>kpok</td>
-					<td><input type="text" name="kode_kpok"></td>
+					<td><input type="text" name="kode_kpok" disabled=""></td>
 				</tr>	
 				<tr>
-					<td>nama</td>
-					<td><input type="text" name="nama_kpok"></td>
-				</tr>
+					<!-- user -->
+					<td><input type="hidden" name="uname_userkpok" value="<?php echo $user->uname_user;?>"></td>
+				</tr>	
 				<tr>
 					<td>jenis</td>
 					<td>
@@ -73,6 +73,10 @@ if(!isset($_SESSION['username'])){
 						<option value="makan">makan</option>
 					</select></td>
 				</tr>	
+				<tr>
+					<td>nama</td>
+					<td><input type="text" name="nama_kpok"></td>
+				</tr>
 				<tr>
 					<td>jumlah</td>
 					<td><input type="text" name="jumlah_kpok"></td>
@@ -116,7 +120,7 @@ if(!isset($_SESSION['username'])){
 		</table>
 		<h3>total harga:<?php
 		
-			$sql="SELECT SUM(harga_ksek) AS total FROM tb_ksek"; 
+			$sql="SELECT SUM(harga_ksek) AS total FROM tb_ksek WHERE uname_userksek = '$_SESSION[username]'"; 
 			$hasil = mysql_query($sql); 
 			$r=mysql_fetch_assoc($hasil); 
 			echo $r['total'];
@@ -124,7 +128,7 @@ if(!isset($_SESSION['username'])){
 		<h3>last update:<?php?></h3>
 
 		<h2>tambah kebutuhan sekunder</h2>
-		<form action="prosescruduser.php" method="POST">
+		<form action="../include/prosescruduser.php" method="POST">
 			<table>
 				<tr>
 					<td>kpok</td>

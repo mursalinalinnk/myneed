@@ -6,7 +6,7 @@
 	<body>
 		<center>
 		<h2>login form</h2>
-			<form action="proseslogin2.php" method="POST">
+			<form action="include/proseslogin2.php" method="POST">
 				<table>
 				<tr>
 

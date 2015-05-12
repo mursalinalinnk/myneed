@@ -15,7 +15,7 @@ if(!isset($_SESSION['username'])){
 	<head></head>
 	<body>
 
-	<button><a href="indexadmin.php">home</a></button>
+	<button><a href="index.php">home</a></button>
 	<button><a href="../logout.php">logout</a></button>
 		<!-- read kebutuhan pokok -->
 	<center>

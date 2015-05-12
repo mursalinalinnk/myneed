@@ -9,26 +9,28 @@
 	if (isset($_POST['tambah'])){
 		tambahkpok(
 			$_POST['kode_kpok'],
+			$_POST['uname_userkpok'],
 			$_POST['nama_kpok'],
 			$_POST['jenis_kpok'],
 			$_POST['jumlah_kpok'],
 			$_POST['harga_kpok'],
 			$_POST['note_kpok']);
-		header("location:index.php");
+		header("location:../user/../user/index.php");
 	}
 	elseif (isset($_POST['update'])){
 		updatekpok(
 			$_POST['kode_kpok'],
+			$_POST['uname_userkpok'],
 			$_POST['nama_kpok'],
 			$_POST['jenis_kpok'],
 			$_POST['jumlah_kpok'],
 			$_POST['harga_kpok'],
 			$_POST['note_kpok']);
-		header("location:index.php");
+		header("location:../user/index.php");
 	}
 	elseif (isset($_POST['hapus'])){
 		hapuskpok($_POST['kode_kpok']);
-	header("location:index.php");
+	header("location:../user/index.php");
 	}
 
 	// ksek
@@ -41,7 +43,7 @@
 			$_POST['jumlah_ksek'],
 			$_POST['harga_ksek'],
 			$_POST['note_ksek']);
-		header("location:index.php");
+		header("location:../user/index.php");
 	}
 	elseif (isset($_POST['updateksek'])){
 		updateksek(
@@ -51,11 +53,11 @@
 			$_POST['jumlah_ksek'],
 			$_POST['harga_ksek'],
 			$_POST['note_ksek']);
-		header("location:index.php");
+		header("location:../user/index.php");
 	}
 	elseif (isset($_POST['hapusksek'])){
 		hapusksek($_POST['kode_ksek']);
-	header("location:index.php");
+	header("location:../user/index.php");
 	}
 
 

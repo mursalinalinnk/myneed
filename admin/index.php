@@ -15,8 +15,10 @@ if(!isset($_SESSION['username'])){
 <title>admin</title>
 </head>
 <body>
-	<button><a href="tambahuser.php">lihat user</a></button>
 	<button><a href="../include/logout.php">logout</a></button>
+	<button><a href="tambahuser.php">lihat user</a></button>
+	<button><a href="kebutuhan.php">kebutuhan</a></button>
+
 	<?php echo "<h3>Welcome ".$_SESSION['username']."</h3>";?>
 
 	<!-- read kebutuhan pokok -->

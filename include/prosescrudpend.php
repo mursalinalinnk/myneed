@@ -5,7 +5,9 @@
 	// include "../koneksi.php";
 	// $kode_kpok = $_POST['kode_kpok'];
 
-	// kpok
+			//////////////////
+	 	// pendapatan
+	//////////////////
 	if (isset($_POST['tambahpend'])){
 		tambahpend(
 			$_POST['kode_pend'],
@@ -29,34 +31,35 @@
 	header("location:../user/pend.php");
 	}
 
-	//////////////////
-	// ksek
+
+
+			//////////////////
+		// tabungan
 	//////////////////
 
-	if (isset($_POST['tambahksek'])){
-		tambahksek(
-			$_POST['kode_ksek'],
-			$_POST['uname_userksek'],
-			$_POST['nama_ksek'],
-			$_POST['jenis_ksek'],
-			$_POST['jumlah_ksek'],
-			$_POST['harga_ksek'],
-			$_POST['note_ksek']);
-		header("location:../user/pen.php");
+	if (isset($_POST['tambahtab'])){
+		tambahtab(
+			$_POST['kode_tab'],
+			$_POST['uname_usertab'],
+			$_POST['nama_tab'],
+			$_POST['jumlah_tab'],
+			$_POST['update_tab'],
+			$_POST['note_tab']);
+		header("location:../user/pend.php");
 	}
-	elseif (isset($_POST['updateksek'])){
-		updateksek(
-			$_POST['kode_ksek'],
-			$_POST['nama_ksek'],
-			$_POST['jenis_ksek'],
-			$_POST['jumlah_ksek'],
-			$_POST['harga_ksek'],
-			$_POST['note_ksek']);
-		header("location:../user/pen.php");
+	elseif (isset($_POST['updatetab'])){
+		updatetab(
+			$_POST['kode_tab'],
+			$_POST['uname_usertab'],
+			$_POST['nama_tab'],
+			$_POST['jumlah_tab'],
+			$_POST['update_tab'],
+			$_POST['note_tab']);
+		header("location:../user/pend.php");
 	}
-	elseif (isset($_POST['hapusksek'])){
-		hapusksek($_POST['kode_ksek']);
-	header("location:../user/pen.php");
+	elseif (isset($_POST['hapustab'])){
+		hapusksek($_POST['kode_tab']);
+	header("location:../user/pend.php");
 	}
 
 

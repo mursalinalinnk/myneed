@@ -1,6 +1,11 @@
 <?php
 
 session_start();
+//cek apakah user sudah login
+if(!isset($_SESSION['username'])){
+    die("Anda belum login");//jika belum login jangan lanjut..
+}
+
 include "../include/config.php";
 //cek apakah user sudah login
 
@@ -17,7 +22,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 </head>
 <body>
 	<button><a href="../include/logout.php">logout</a></button>
-	<button><a href="../include/cat.php">kategori kebutuhan</a></button>
+	<button><a href="cat.php">edit category kebutuhan</a></button>
 	<button><a href="pend.php">pendapatan dan tabungan</a></button>
 
 	<h3>nama : <?php echo $user->uname_user;?></h3>
@@ -51,7 +56,13 @@ $user=mysql_fetch_object($sql_ngambil_user);
 			echo $r['total'];
 		?></h3>
 		<h3>last update:<?php?></h3>
-		<h3>total pendapatan bulanan:<?php tampilpend();?></h3>
+		<h3>total pend: Rp. <?php
+		
+			$sql="SELECT SUM(jumlah_pend) AS total FROM tb_pend WHERE uname_userpend = '$_SESSION[username]'"; 
+			$hasil = mysql_query($sql); 
+			$r=mysql_fetch_assoc($hasil); 
+			echo $r['total'];
+		?></h3>
 		
 
 		<h2>tambah kebutuhan bulanan</h2>
@@ -66,18 +77,14 @@ $user=mysql_fetch_object($sql_ngambil_user);
 					<td><input type="hidden" name="uname_userkpok" value="<?php echo $user->uname_user;?>"></td>
 				</tr>	
 				<tr>
-					<td>jenis</td>
+					<td>kategory</td>
 					<td>
 					<select name="jenis_kpok">
-						<option value="no">--</option>
-						<option value="utang">utang</option>
-						<option value="utang_motor">utang motor</option>
-						<option value="tabungan akhirat">tabungan akhirat</option>
-						<option value="kampus">kampus</option>
-						<option value="makan">makan</option>
-						<option value="bensin">bensin</option>
+						<option>--</option>
+						<?php tampilkatkebopt(); ?>
 					</select></td>
 				</tr>	
+
 				<tr>
 					<td>namakeb</td>
 					<td><input type="text" name="nama_kpok" placeholder="spp"></td>
@@ -144,7 +151,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 					<td><input type="hidden" name="uname_userksek" value="<?php echo $user->uname_user;?>"></td>
 				</tr>
 				<tr>
-					<td>jenis</td>
+					<td>kategori</td>
 					<td>
 					<select name="jenis_ksek">
 						<option value="No" placeholder="makanan">--</option>

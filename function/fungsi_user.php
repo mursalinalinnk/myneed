@@ -85,4 +85,43 @@
 		$hasil=mysql_query($sql) or die(mysql_error());
 		return ($hasil);
 	}
+
+
+	/////////////////////
+	// pendapatan
+	/////////////////////
+	function tambahpend($kode_pend, $uname_userpend, $nama_pend, $jumlah_pend, $tanggal_pend){
+		$sql="INSERT INTO tb_pend(kode_pend,uname_userpend,nama_pend,jumlah_pend,tanggal_pend)
+				VALUES('$kode_pend', '$uname_userpend', '$nama_pend',' $jumlah_pend','$tanggal_pend')";
+		$hasil=mysql_query($sql);
+		return($hasil);
+	}
+
+	function tampilpend(){
+		$sql="SELECT * FROM tb_pend WHERE uname_userpend = '$_SESSION[username]'";
+		$hasil= mysql_query($sql);
+		while($row=mysql_fetch_array($hasil)){
+		echo "
+		<tr>
+			<td>$row[kode_pend]</td>
+			<td>$row[nama_pend]</td>
+			<td>$row[jumlah_pend]</td>
+		</tr>
+		";
+		}
+		return($hasil);
+	}
+
+
+		function updatepend($kode_pend, $uname_userpend, $nama_pend, $jumlah_pend){
+		$sql="UPDATE tb_pend SET  kode_pend='$kode_pend',uname_userpend='$uname_userpend',nama_pend='$nama_pend',jumlah_pend='$jumlah_pend'
+		WHERE kode_pend ='$kode_pend' ";
+		$hasil=mysql_query($sql);
+	}
+
+	function hapuspend($kode_pend){
+		$sql="DELETE FROM tb_pend WHERE kode_pend='$kode_pend'";
+		$hasil=mysql_query($sql) or die(mysql_error());
+		return ($hasil);
+	}
 ?>

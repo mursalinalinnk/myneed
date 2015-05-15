@@ -1,5 +1,6 @@
+<?PHP include "include/config.php";?>
 <html>
-	<head></head>
+	<head><title>selamat datang di  <?php  echo $site ['judul'];?></title></head>
 	<style type="text/css">
 	
 	</style>

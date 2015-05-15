@@ -16,7 +16,7 @@ if(!isset($_SESSION['username'])){
 	<body>
 
 	<button><a href="index.php">home</a></button>
-	<button><a href="../logout.php">logout</a></button>
+	<button><a href="../include/logout.php">logout</a></button>
 		<!-- read kebutuhan pokok -->
 	<center>
 		<h2>daftar user</h2>
@@ -26,7 +26,6 @@ if(!isset($_SESSION['username'])){
 				<th style="border: 1px solid black"; >kode user</th>
 				<th style="border: 1px solid black";>username</th>
 				<th style="border: 1px solid black";>password</th>
-				<!-- <th style="border: 1px solid black";>lihat kebutuhan</th> cukup  click nama-->
 				<th style="border: 1px solid black";>register Date</th>
 			</tr>
 			<?php
@@ -34,6 +33,8 @@ if(!isset($_SESSION['username'])){
 			include "fungsi_admin.php";
 			tampiluser();
 			?>
+
+			 
 
 		</table>
 
@@ -51,8 +52,11 @@ if(!isset($_SESSION['username'])){
 				<tr>
 					<td>password</td>
 					<td><input type="text" name="pass_user"></td>
-				</tr>	
-				<!-- <tr><td>register_Date</td><td><input type="date" name="registration_Date"></td></tr>	 tambahkan otoatis di db -->
+				</tr>
+				<tr>
+					<!-- <td>tanggalregister</td> -->
+					<td><input type="hidden" name="reg_user"></td>
+				</tr>
 			</table>
 			<input type="submit" name="tambah" value="tambah">
 			<input type="submit" name="update" value="update">

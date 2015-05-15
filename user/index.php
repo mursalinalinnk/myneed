@@ -17,6 +17,8 @@ $user=mysql_fetch_object($sql_ngambil_user);
 </head>
 <body>
 	<button><a href="../include/logout.php">logout</a></button>
+	<button><a href="../include/cat.php">kategori kebutuhan</a></button>
+	<button><a href="pend.php">pendapatan dan tabungan</a></button>
 
 	<h3>nama : <?php echo $user->uname_user;?></h3>
 	<!-- read kebutuhan pokok -->
@@ -41,7 +43,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 
 		</table>
 
-		<h3>total harga:<?php
+		<h3>total harga: Rp. <?php
 		
 			$sql="SELECT SUM(harga_kpok) AS total FROM tb_kpok WHERE uname_userkpok = '$_SESSION[username]'"; 
 			$hasil = mysql_query($sql); 
@@ -49,6 +51,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 			echo $r['total'];
 		?></h3>
 		<h3>last update:<?php?></h3>
+		<h3>total pendapatan bulanan:<?php tampilpend();?></h3>
 		
 
 		<h2>tambah kebutuhan bulanan</h2>
@@ -68,22 +71,24 @@ $user=mysql_fetch_object($sql_ngambil_user);
 					<select name="jenis_kpok">
 						<option value="no">--</option>
 						<option value="utang">utang</option>
+						<option value="utang_motor">utang motor</option>
 						<option value="tabungan akhirat">tabungan akhirat</option>
 						<option value="kampus">kampus</option>
 						<option value="makan">makan</option>
+						<option value="bensin">bensin</option>
 					</select></td>
 				</tr>	
 				<tr>
 					<td>namakeb</td>
-					<td><input type="text" name="nama_kpok" ></td>
+					<td><input type="text" name="nama_kpok" placeholder="spp"></td>
 				</tr>
 				<tr>
 					<td>jumlah</td>
-					<td><input type="text" name="jumlah_kpok"></td>
+					<td><input type="text" name="jumlah_kpok" placeholder="1"></td>
 				</tr>	
 				<tr>
 					<td>harga</td>
-					<td><input type="text" name="harga_kpok"></td>
+					<td><input type="text" name="harga_kpok" placeholder="Rp.10.000"></td>
 				</tr>
 				<tr>
 					<td>note</td>
@@ -142,22 +147,22 @@ $user=mysql_fetch_object($sql_ngambil_user);
 					<td>jenis</td>
 					<td>
 					<select name="jenis_ksek">
-						<option value="No">--</option>
+						<option value="No" placeholder="makanan">--</option>
 						<option value="pakaian">pakaian</option>
 						<option value="kampus">kampus</option>
 					</select></td>
 				</tr>	
 				<tr>
 					<td>namakeb</td>
-					<td><input type="text" name="nama_ksek"></td>
+					<td><input type="text" name="nama_ksek" placeholder="sabun" ></td>
 				</tr>
 				<tr>
 					<td>jumlah</td>
-					<td><input type="text" name="jumlah_ksek"></td>
+					<td><input type="text" name="jumlah_ksek" placeholder="1"></td>
 				</tr>	
 				<tr>
 					<td>harga</td>
-					<td><input type="text" name="harga_ksek"></td>
+					<td><input type="text" name="harga_ksek" placeholder="Rp.10.000"></td>
 				</tr>
 				<tr>
 					<td>note</td>

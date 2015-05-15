@@ -1,18 +1,20 @@
 <!-- proses.php -->
 <?php
 
-	include "fungsi_admin.php";
-	// include "../koneksi.php";
-	// $kode_kpok = $_POST['kode_kpok'];
 
-	// kpok
+
+	include "fungsi_admin.php";
+
+
+	// kuser
 	if (isset($_POST['tambah'])){
+
 		tambahuser(
 			$_POST['kode_user'],
 			$_POST['uname_user'],
 			$_POST['pass_user'],
-			date("d-m-y");
-		header("location:tambahuser.php");
+			$_POST['reg_user']);
+		header("location:tambahuser.php");		
 	}
 	elseif (isset($_POST['update'])){
 		updateuser(

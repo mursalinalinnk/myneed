@@ -3,9 +3,9 @@
 
 include "../include/config.php";
 
-function tambahuser($kode_user, $uname_user, $pass_user){
-	$sql="INSERT INTO tb_user(kode_user,uname_user,pass_user,regestration_Date)
-			VALUES ('$kode_user', '$uname_user', '$pass_user',NOW())";
+function tambahuser($kode_user, $uname_user, $pass_user ,$reg_user){
+	$sql="INSERT INTO tb_user(kode_user,uname_user,pass_user,reg_user)
+			VALUES ('$kode_user', '$uname_user', '$pass_user' ,now())";
 	$hasil=mysql_query($sql);
 	return($hasil);
 }
@@ -19,7 +19,7 @@ function tampiluser(){
 			<td>$row[kode_user]</td>
 			<td>$row[uname_user]</td>
 			<td>$row[pass_user]</td>
-			<td>$row[registration_Date]</td>
+			<td>$row[reg_user]</td>
 			</tr>
 		";
 	}

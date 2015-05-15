@@ -9,16 +9,16 @@ $db['pass'] =	"";
 $db['name'] =	"db_myneed";
 
 // menyatukan semua variable menjadi sebuah koneksi
-mysql_connect($db['host'],$db['user'],$db['pass']);
+ $koneksi=mysql_connect($db['host'],$db['user'],$db['pass']);
 
 // memilih database yang akan di gunakan
 mysql_select_db($db['name']);
 
-$site['judul'] = "myneed";
+$site['judul'] = "MyNeed";
 $site['root'] = "http://localhost/jproject/myneed/index.php";
 
 //user yang sedang aktif
-$sql_ngambil_user = mysql_query( "SELECT * FROM tb_user WHERE uname_user = '$_SESSION[username]' ");
-$user=mysql_fetch_object($sql_ngambil_user);
+// $sql_ngambil_user = mysql_query( "SELECT * FROM tb_user WHERE uname_user = '$_SESSION[username]' ");
+// $user=mysql_fetch_object($sql_ngambil_user);
 
 ?>

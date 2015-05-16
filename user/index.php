@@ -18,7 +18,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 
 <html>
 <head>
-<title></title>
+<title><?php  echo $site ['judul'];?></title>
 </head>
 <body>
 	<button><a href="../include/logout.php">logout</a></button>
@@ -26,6 +26,29 @@ $user=mysql_fetch_object($sql_ngambil_user);
 	<button><a href="pend.php">pendapatan dan tabungan</a></button>
 
 	<h3>nama : <?php echo $user->uname_user;?></h3>
+
+	<h2>balance</h2>
+	<h3>total harga: Rp. <?php
+		
+			$sql="SELECT SUM(harga_kpok) AS total FROM tb_kpok WHERE uname_userkpok = '$_SESSION[username]'"; 
+			$hasil = mysql_query($sql); 
+			$r1=mysql_fetch_assoc($hasil); 
+			echo $r1['total'];
+		?></h3>
+	<h3>total pend: Rp. <?php
+		
+			$sql="SELECT SUM(jumlah_pend) AS total FROM tb_pend WHERE uname_userpend = '$_SESSION[username]'"; 
+			$hasil = mysql_query($sql); 
+			$r2=mysql_fetch_assoc($hasil); 
+			echo $r2['total'];
+		?></h3>
+
+
+
+
+	<div class="foto">
+		<?php echo "<td><img src='../images/$user->foto_user'></td>";?>
+	</div>
 	<!-- read kebutuhan pokok -->
 	<div style="float:left;padding: 0 50px;">
 	<center>
@@ -48,21 +71,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 
 		</table>
 
-		<h3>total harga: Rp. <?php
 		
-			$sql="SELECT SUM(harga_kpok) AS total FROM tb_kpok WHERE uname_userkpok = '$_SESSION[username]'"; 
-			$hasil = mysql_query($sql); 
-			$r=mysql_fetch_assoc($hasil); 
-			echo $r['total'];
-		?></h3>
-		<h3>last update:<?php?></h3>
-		<h3>total pend: Rp. <?php
-		
-			$sql="SELECT SUM(jumlah_pend) AS total FROM tb_pend WHERE uname_userpend = '$_SESSION[username]'"; 
-			$hasil = mysql_query($sql); 
-			$r=mysql_fetch_assoc($hasil); 
-			echo $r['total'];
-		?></h3>
 		
 
 		<h2>tambah kebutuhan bulanan</h2>

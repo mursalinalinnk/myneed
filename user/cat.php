@@ -16,10 +16,9 @@ $user=mysql_fetch_object($sql_ngambil_user);
 
 
 ?>
-<!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title><?php  echo $site ['judul'];?></title>
 </head>
 <body>
 
@@ -37,20 +36,21 @@ $user=mysql_fetch_object($sql_ngambil_user);
 <form action="../include/prosescrudkatkeb.php" method="POST">
 	<table>
 		<tr>
-			<!-- <td><h4>kode kategori kebutuhan</h4></td> -->
-			<td><input type="hidden" name="kode_katkeb" placeholder="hanya untuk menghapus"></td>
+			<td>kode katkeb</td>
+			<td><input type="text" name="kode_katkeb"></td>
 		</tr>
 		<tr>
-			<!-- <td>user katkeb</td> -->
+			<td>user katkeb</td>
 			<td><input type="hidden" name="uname_userkatkeb" value="<?php echo $user->uname_user;?>"></td>
 		</tr>
 		<tr>
-			<td><h4>nama kategori kebutuhan yang baru : </h4></td>
+			<td>nama kategori kebutuhan yang baru : </td>
 			<td><input type="text" name="nama_katkeb"></td>
 		</tr>
 	</table>
-			<input type="submit" name="tambah" value="tambah">
-			<input type="submit" name="hapus" value="hapus">
+			<input type="submit" name="tambahkatkeb" value="tambah">
+			<!-- <input type="submit" name="updatekatkeb" value="update"> -->
+			<input type="submit" name="hapuskatkeb" value="hapus">
 </form>
 
 </body>

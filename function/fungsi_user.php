@@ -155,7 +155,7 @@
 		return($hasil);
 	}
 
-	function hapustab(){
+	function hapustab($kode_tab){
 		$sql="DELETE FROM tb_tab WHERE kode_tab='$kode_tab' ";
 		$hasil = mysql_query($sql) or die(mysql_error());
 		return($hasil);
@@ -182,8 +182,8 @@
 		while ( $row = mysql_fetch_array($hasil)){
 			echo "
 			<tr>
-				<td>$row[nama_katkeb]</td>
-				<td><input type= submit name=\"hapus\" value=\"hapus\"></td>
+				<td>$row[kode_katkeb]</td>				
+				<td>$row[nama_katkeb]</td>				
 			</tr>
 			";
 		}
@@ -196,10 +196,15 @@
 		return($hasil);
 	}
 
-	function hapuskatkeb(){
+	function updatekatkeb($kode_katkeb,$uname_userkatkeb,$nama_katkeb){
+		$sql = "UPDATE tb_katkeb SET kode_katkeb='$kode_katkeb',uname_userkatkeb='$uname_userkatkeb',nama_katkeb='$nama_katkeb'
+				WHERE kode_katkeb='$kode_katkeb'";
+		$hasil = mysql_query($sql);
+	}
+
+	function hapuskatkeb($kode_katkeb){
 		$sql = "DELETE FROM tb_katkeb WHERE kode_katkeb='$kode_katkeb'";
 		$hasil = mysql_query($sql) or die(mysql_error());
-		return ($hasil);
 	}
 
 

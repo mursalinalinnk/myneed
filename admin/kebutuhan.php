@@ -6,17 +6,17 @@ session_start();
 if(!isset($_SESSION['username'])){
     die("Anda belum login");//jika belum login jangan lanjut..
 }
-//cek level user
-// if($_SESSION['sebagai']!="mahasiswa"){ die("Anda bukan mahasiswa");}//jika bukan admin jangan lanjut
+include "../include/config.php";
 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title><?php  echo $site ['judul'];?></title>
 </head>
 <body>
 <h2>kebutuhan page</h2>
+<h4> ! this page is under construction</h4>
 </body>
 </html>

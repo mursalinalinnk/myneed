@@ -6,14 +6,21 @@
 			//////////////////
 	 	// pendapatan
 	//////////////////
-	if (isset($_POST['tambah'])){
+	if (isset($_POST['tambahkatkeb'])){
 		tambahkatkeb(
 			$_POST['kode_katkeb'],
 			$_POST['uname_userkatkeb'],
 			$_POST['nama_katkeb']);
 		header("location:../user/cat.php");
 	}
-	elseif (isset($_POST['hapus'])){
+	elseif (isset($_POST['updatekatkeb'])){
+		updatekatkeb(
+			$_POST['kode_katkeb'],
+			$_POST['uname_userkatkeb'],
+			$_POST['nama_katkeb']);
+	header("location:../user/cat.php");
+	}
+	elseif (isset($_POST['hapuskatkeb'])){
 		hapuskatkeb($_POST['kode_katkeb']);
 	header("location:../user/cat.php");
 	}

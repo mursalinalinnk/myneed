@@ -175,6 +175,7 @@
 		$hasil = mysql_query($sql);
 		while ( $row = mysql_fetch_array($hasil)){
 			echo "
+
 			<option>$row[nama_katkeb]</option>
 			";
 		}
@@ -185,10 +186,12 @@
 		$hasil = mysql_query($sql);
 		while ( $row = mysql_fetch_array($hasil)){
 			echo "
-			<tr>
-				<td>$row[kode_katkeb]</td>				
-				<td>$row[nama_katkeb]</td>				
-			</tr>
+			<tbody>
+				<tr>
+					<td>$row[kode_katkeb]</td>				
+					<td>$row[nama_katkeb]</td>				
+				</tr>
+			</tbody>
 			";
 		}
 	}

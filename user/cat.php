@@ -25,39 +25,95 @@ $user=mysql_fetch_object($sql_ngambil_user);
 	<!--<link rel="stylesheet" type="text/css" href="css/cerulean-bootstrap.min.css">bootstrap tema -->
 	<script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
+
+    <style >
+    		.navbar-right {
+  				margin-top: 5px;
+			}
+
+			.panel-red {
+  				border-color: #d9534f;
+			}
+
+			.panel-yellow {
+  				border-color: #f0ad4e;
+			}
+
+			.panel-yellow .panel-heading {
+  				border-color: #f0ad4e;
+  				color: #fff;
+  				background-color: #f0ad4e;
+			}
+
+			.panel-red .panel-heading {
+			  border-color: #d9534f;
+			  color: #fff;
+			  background-color: #d9534f;
+			}
+
+			.panel-green {
+			  border-color: #5cb85c;
+			}
+
+			.panel-green .panel-heading {
+			  border-color: #5cb85c;
+			  color: #fff;
+			  background-color: #5cb85c;
+			}
+    </style>
 </head>
 <body>
 
+<?php include"../template/nav.php";?>
+<!-- mulai -->
+<div class="container">
+	<div class="row" style="margin-top:100px">
 
-	<button><a href="../include/logout.php">logout</a></button>
-	<button><a href="index.php">home</a></button>
+	    <div class="col-lg-6">
+	        <div class="panel panel-default">
+	            <div class="panel-heading">
+	                <h3>Tambah kategori</h3>
+	            </div>
+	           	
+	            <div class="panel-body">
+	                <div class="dataTable_wrapper">
+	                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+	                        <thead>
+	                            <tr>
+	                             <th style="border: 1px solid black"; >#</th>
+								 <th style="border: 1px solid black";>kategorimkebutuhan</th>
+	                            </tr>
+	                        </thead>
+	                        <?php
+							tampilkatkeb();
+							?>
+	                    </table>
+	                </div>
+	        	</div>
+	    	</div>
+		</div>
 
-<h3>categori kebutuhan</h3>
-<table>
-	
-<?php tampilkatkeb(); ?>
-</table>
-
-
-<form action="../include/prosescrudkatkeb.php" method="POST">
-	<table>
-		<tr>
-			<td>kode katkeb</td>
-			<td><input type="text" name="kode_katkeb"></td>
-		</tr>
-		<tr>
-			<td>user katkeb</td>
-			<td><input type="hidden" name="uname_userkatkeb" value="<?php echo $user->uname_user;?>"></td>
-		</tr>
-		<tr>
-			<td>nama kategori kebutuhan yang baru : </td>
-			<td><input type="text" name="nama_katkeb"></td>
-		</tr>
-	</table>
-			<input type="submit" name="tambahkatkeb" value="tambah">
-			<!-- <input type="submit" name="updatekatkeb" value="update"> -->
-			<input type="submit" name="hapuskatkeb" value="hapus">
-</form>
-
+		<!-- start -->
+		<div class="col-md-6">
+	        <form action="../include/prosescrudkatkeb.php" method="POST">
+			<table>
+				<div class="form-group">
+					<label>#kode</label>
+					<input type="text" class="form-control" name="kode_katkeb" placeholder="hanya untuk hapus/update">
+				</div>
+				
+					<!-- <label>kategori kebutuhan</label> -->
+					<input  type="hidden" class="form-control" name="uname_userkatkeb" value="<?php echo $user->uname_user;?>">
+				<div class="form-group">
+					<label>kategori kebutuhan</label>
+					<input type="text" class="form-control"  name="nama_katkeb" placeholder="kendaraan">
+				</div>
+			</table>
+					<input type="submit" class="btn btn-outline btn-success" name="tambahkatkeb" value="tambah">
+					<input type="submit" class="btn btn-outline btn-success" name="hapuskatkeb" value="hapus">
+			</form>
+		</div>
+	</div>
+</div>
 </body>
 </html>

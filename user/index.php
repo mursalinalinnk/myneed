@@ -66,7 +66,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 <div class="container">
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="navbar-header">
-	<a class="navbar-brand" href="index.html">MY NEED <?php echo $user->uname_user;?></a>
+	<a class="navbar-brand" href="index.php">MY NEED <?php echo $user->uname_user;?></a>
 	<a class="navbar-brand"><?php echo "<td><img class=\"img-rounded img-circle\" style=\"width 35px;height:35px \" src='../images/$user->foto_user'></td>";?></a>
 
 	</div>
@@ -165,7 +165,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                         <th style="border: 1px solid black"; >kode kpok</th>
+                                         <th style="border: 1px solid black"; >#</th>
 										 <th style="border: 1px solid black";>nama</th>
 										 <th style="border: 1px solid black";>jenis</th>
 										 <th style="border: 1px solid black";>jumlah</th>
@@ -191,7 +191,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 								<table>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>kode</label>
+											<label>#kode</label>
 											<input type="text" class="form-control" name="kode_kpok" placeholder="hanya untuk hapus/update">
 										</div>
 										<div class="form-group">
@@ -251,7 +251,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 									<thead>
 									<tr>
 										<!-- <th style="border: 1px solid black"; >no</th> -->
-										<th style="border: 1px solid black"; >kode ksek</th>
+										<th style="border: 1px solid black"; >#</th>
 										<th style="border: 1px solid black";>nama</th>
 										<th style="border: 1px solid black";>jenis</th>
 										<th style="border: 1px solid black";>jumlah</th>
@@ -277,7 +277,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 								<table>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>kode</label>
+											<label>#kode</label>
 											<input type="text" class="form-control" name="kode_ksek" placeholder="hanya untuk hapus/update">
 										</div>
 										<div class="form-group">

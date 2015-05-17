@@ -24,6 +24,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 	<button><a href="../include/logout.php">logout</a></button>
 	<button><a href="cat.php">edit category kebutuhan</a></button>
 	<button><a href="pend.php">pendapatan dan tabungan</a></button>
+	<button><a href="setakun.php">setting akun</a></button>
 
 	<h3>nama : <?php echo $user->uname_user;?></h3>
 

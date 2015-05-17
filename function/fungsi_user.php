@@ -17,6 +17,7 @@
 			$hasil=mysql_query($sql);
 			while ($row=mysql_fetch_array($hasil)) {
 			echo "
+				<tbody>
 					<tr>
 						<td>$row[kode_kpok]</td>
 						<td>$row[nama_kpok]</td>
@@ -25,6 +26,7 @@
 						<td>$row[harga_kpok]</td>
 						<td>$row[note_kpok]</td>
 					</tr>
+				</tbody>
 			";
 			}
 		return ($hasil);
@@ -60,7 +62,8 @@
 	$sql="SELECT * FROM tb_ksek WHERE uname_userksek = '$_SESSION[username]'";
 	$hasil=mysql_query($sql);
 	while ($row=mysql_fetch_array($hasil)) {
-		echo "
+		echo "	
+			<tbody>
 				<tr>
 					<td>$row[kode_ksek]</td>
 					<td>$row[nama_ksek]</td>
@@ -69,6 +72,7 @@
 					<td>$row[harga_ksek]</td>
 					<td>$row[note_ksek]</td>
 				</tr>
+			</tbody>
 		";
 		}
 	return ($hasil);

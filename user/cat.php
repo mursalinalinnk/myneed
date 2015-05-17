@@ -19,6 +19,12 @@ $user=mysql_fetch_object($sql_ngambil_user);
 <html>
 <head>
 	<title><?php  echo $site ['judul'];?></title>
+	<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css"><!--font awesome-->
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"><!--bootstrap-->
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<!--<link rel="stylesheet" type="text/css" href="css/cerulean-bootstrap.min.css">bootstrap tema -->
+	<script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
 </head>
 <body>
 

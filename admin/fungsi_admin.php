@@ -15,12 +15,14 @@ function tampiluser(){
 	$hasil=mysql_query($sql) or die(mysql_error());
 	while ($row=mysql_fetch_array($hasil)) {
 		echo "
+		<tbody>
 			<tr>
 			<td>$row[kode_user]</td>
 			<td>$row[uname_user]</td>
 			<td>$row[pass_user]</td>
 			<td>$row[reg_user]</td>
 			</tr>
+		</tbody>
 		";
 	}
 		return ($hasil);

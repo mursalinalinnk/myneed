@@ -15,12 +15,11 @@
 			$_POST['jumlah_kpok'],
 			$_POST['harga_kpok'],
 			$_POST['note_kpok']);
-		header("location:../user/../user/index.php");
+		header("location:../user/index.php");
 	}
 	elseif (isset($_POST['update'])){
 		updatekpok(
 			$_POST['kode_kpok'],
-			$_POST['uname_userkpok'],
 			$_POST['nama_kpok'],
 			$_POST['jenis_kpok'],
 			$_POST['jumlah_kpok'],
@@ -42,7 +41,6 @@
 			$_POST['kode_ksek'],
 			$_POST['uname_userksek'],
 			$_POST['nama_ksek'],
-			$_POST['jenis_ksek'],
 			$_POST['jumlah_ksek'],
 			$_POST['harga_ksek'],
 			$_POST['note_ksek']);
@@ -52,7 +50,6 @@
 		updateksek(
 			$_POST['kode_ksek'],
 			$_POST['nama_ksek'],
-			$_POST['jenis_ksek'],
 			$_POST['jumlah_ksek'],
 			$_POST['harga_ksek'],
 			$_POST['note_ksek']);

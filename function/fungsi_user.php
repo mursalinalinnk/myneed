@@ -48,9 +48,9 @@
 // ///////////////////////////////////////////////
 //------ fungsi kebutuhan sekond------
 // ///////////////////////////////////////////////
-	function tambahksek($kode_ksek, $uname_userksek,$nama_ksek, $jenis_ksek, $jumlah_ksek, $harga_ksek, $note_ksek){
-		$sql="INSERT INTO tb_ksek(kode_ksek,uname_userksek,nama_ksek,jenis_ksek,jumlah_ksek,harga_ksek,note_ksek)
-				VALUES('$kode_ksek','$uname_userksek','$nama_ksek','$jenis_ksek','$jumlah_ksek','$harga_ksek','$note_ksek')";
+	function tambahksek($kode_ksek, $uname_userksek,$nama_ksek, $jumlah_ksek, $harga_ksek, $note_ksek){
+		$sql="INSERT INTO tb_ksek(kode_ksek,uname_userksek,nama_ksek,jumlah_ksek,harga_ksek,note_ksek)
+				VALUES('$kode_ksek','$uname_userksek','$nama_ksek','$jumlah_ksek','$harga_ksek','$note_ksek')";
 		$hasil=mysql_query($sql);
 		return ($hasil);
 	}
@@ -67,7 +67,6 @@
 				<tr>
 					<td>$row[kode_ksek]</td>
 					<td>$row[nama_ksek]</td>
-					<td>$row[jenis_ksek]</td>
 					<td>$row[jumlah_ksek]</td>
 					<td>$row[harga_ksek]</td>
 					<td>$row[note_ksek]</td>
@@ -216,4 +215,31 @@
 
 
 
+
+			/////////////////////
+		// tweet
+	/////////////////////
+
+	function tambahtweet($kode_tweet, $uname_usertweet, $isi, $tgl_tweet){
+		$sql = "INSERT INTO tb_tweet(kode_tweet,uname_usertweet,isi,tgl_tweet)
+				VALUES ('$kode_tweet','$uname_usertweet','$isi',NOW())";
+		$hasil =mysql_query($sql);
+		return($hasil);
+	}
+
+	function tampiltweet(){
+		$sql = "SELECT * FROM tb_tweet order by tgl_tweet desc";
+		$hasil= mysql_query($sql);
+		while ($row= mysql_fetch_array($hasil)) {
+			echo "
+			<div style=\" border: 1px solid grey\">
+			<p>$row[isi]</p>
+			<p>$row[tgl_tweet]</p>
+			<p>$row[uname_usertweet]</p>
+	       	</div>
+			";
+		}
+		// $sql_usertweet = " SELECT * FROM tb_user WHERE uname_user->uname_usertweet";
+		// $hasil= mysql_query($sql);
+	}
 ?>

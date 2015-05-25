@@ -67,7 +67,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="navbar-header">
 	<a class="navbar-brand" href="index.php">MY NEED <?php echo $user->uname_user;?></a>
-	<a class="navbar-brand"><?php echo "<td><img class=\"img-rounded img-circle\" style=\"width 35px;height:35px \" src='../images/$user->foto_user'></td>";?></a>
+	<a class="navbar-brand"><?php echo "<td><img class=\"img-rounded img-circle\" style=\"width 35px;height:35px \" src='user_image/$user->foto_user'></td>";?></a>
 
 	</div>
 
@@ -147,14 +147,17 @@ $user=mysql_fetch_object($sql_ngambil_user);
 
 	<!-- TABEL -->
 	<div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Tables</h1>
-                </div>
-                <!-- /.col-lg-12 -->
+            <div class="col-lg-8">
+                <h1 class="page-header">Tables</h1>
+            </div>
+            <div class="col-lg-4">
+                <h1 class="page-header">Tweet</h1>
+            </div>
+                <!-- /.col-lg-9+3 -->
             </div>
             <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="row" >
+                <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3>Daftar Kebutuhan Bulanan</h3>
@@ -253,7 +256,6 @@ $user=mysql_fetch_object($sql_ngambil_user);
 										<!-- <th style="border: 1px solid black"; >no</th> -->
 										<th style="border: 1px solid black"; >#</th>
 										<th style="border: 1px solid black";>nama</th>
-										<th style="border: 1px solid black";>jenis</th>
 										<th style="border: 1px solid black";>jumlah</th>
 										<th style="border: 1px solid black";>harga</th>
 										<th style="border: 1px solid black";>note</th>
@@ -280,10 +282,10 @@ $user=mysql_fetch_object($sql_ngambil_user);
 											<label>#kode</label>
 											<input type="text" class="form-control" name="kode_ksek" placeholder="hanya untuk hapus/update">
 										</div>
-										<div class="form-group">
+									
 											<!-- <label>tersembunyi kode kpok</label> -->
 											<input type="hidden" class="form-control" name="uname_userksek" value="<?php echo $user->uname_user;?>">
-										</div>	
+								
 										<div class="form-group">
 											<label>kebutuhan</label>
 											<input type="text" class="form-control" name="nama_ksek" placeholder="beli tas baru">
@@ -296,7 +298,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>harga</label>
-											<input type="text" class="form-control" type="text" name="harga_sek" placeholder="Rp.10.000">
+											<input type="text" class="form-control" type="text" name="harga_ksek" placeholder="Rp.10.000">
 										</div>
 										<div class="form-group">
 											<label>note</label>
@@ -318,10 +320,38 @@ $user=mysql_fetch_object($sql_ngambil_user);
 		            </div>
 		            <!-- panel default -->
                 </div>
-                <!-- /.col-lg-12 -->
+                <!-- /.col-lg-9 -->
+
+
+            <!-- tweet isi -->
+	        	<div class="col-md-4" style="border: 2px solid black">
+					<form action="../include/tweetcrud.php" method="POST">
+					<table>
+					<tr>				
+						<input type="hidden" name="kode_tweet">
+						<input type="hidden" name="uname_usertweet" value="<?php echo $user->uname_user;?>">
+						<textarea type="text" name="isi" placeholder="bagaimana keuanganmu hari ini ..."></textarea>
+						<input type="date" class="form-control" name="tgl_tweet" disabled="">
+
+					</tr>
+					<tr>
+						<input type="submit" name="tweet" value="tweet" >
+						<input type="submit" name="hapus" value="hapus">
+						<input type="reset" name="reset" >
+					</tr>
+					</table>
+					</form>
+	        	<?php 
+	        	echo "<h3>buat tweet baru</h3>";
+	        	tampiltweet();
+	        	?>
+	        	</div>
             </div>
             <!-- /.row -->
-		
+
+    </div>
+    <!-- end o table -->
+
 </div>
 </body>
 </html>

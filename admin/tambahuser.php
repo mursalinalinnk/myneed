@@ -112,7 +112,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 
 	<!-- start -->
 		<div class="col-md-6">
-	        <form action="../include/prosescrudkatkeb.php" method="POST">
+	        <form action="prosescrudadmin.php" method="POST">
 			<table>
 				<div class="form-group">
 					<label>#kode</label>

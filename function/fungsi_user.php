@@ -2,7 +2,20 @@
 
 
 	include "../include/config.php";
-//------ fungsi kebutuhan pokok------
+
+			/////////////////////
+		// set akun user
+	/////////////////////
+	function updateuser($kode_user, $uname_user, $pass_user, $foto_user){
+		$sql="UPDATE tb_user SET  kode_user='$kode_user',uname_user='$uname_user',pass_user='$pass_user' ,foto_user='$foto_user'
+		WHERE kode_user='$kode_user' ";
+		$hasil=mysql_query($sql);
+	}
+
+
+			/////////////////////
+		// kebutuhan pokok
+	/////////////////////
 	function tambahkpok($kode_kpok, $uname_userkpok, $nama_kpok, $jenis_kpok, $jumlah_kpok, $harga_kpok, $note_kpok){
 		$sql="INSERT INTO tb_kpok(kode_kpok,uname_userkpok,nama_kpok,jenis_kpok,jumlah_kpok,harga_kpok,note_kpok)
 				VALUES('$kode_kpok','$uname_userkpok','$nama_kpok','$jenis_kpok','$jumlah_kpok','$harga_kpok','$note_kpok')";
@@ -45,9 +58,9 @@
 	}
 
 
-// ///////////////////////////////////////////////
-//------ fungsi kebutuhan sekond------
-// ///////////////////////////////////////////////
+			/////////////////////
+		// kebutuhan sekunder
+	/////////////////////
 	function tambahksek($kode_ksek, $uname_userksek,$nama_ksek, $jumlah_ksek, $harga_ksek, $note_ksek){
 		$sql="INSERT INTO tb_ksek(kode_ksek,uname_userksek,nama_ksek,jumlah_ksek,harga_ksek,note_ksek)
 				VALUES('$kode_ksek','$uname_userksek','$nama_ksek','$jumlah_ksek','$harga_ksek','$note_ksek')";

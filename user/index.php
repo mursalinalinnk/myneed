@@ -88,8 +88,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 	                <h3 class="panel-title">total kebutuhan pokok</h3>
 	            </div>
 	            <div class="panel-body">
-	                 <?php
-		
+	                 <?php	
 						$sql="SELECT SUM(harga_kpok) AS total FROM tb_kpok WHERE uname_userkpok = '$_SESSION[username]'"; 
 						$hasil = mysql_query($sql); 
 						$r1=mysql_fetch_assoc($hasil); 
@@ -331,13 +330,11 @@ $user=mysql_fetch_object($sql_ngambil_user);
 						<input type="hidden" name="kode_tweet">
 						<input type="hidden" name="uname_usertweet" value="<?php echo $user->uname_user;?>">
 						<textarea type="text" name="isi" placeholder="bagaimana keuanganmu hari ini ..."></textarea>
-						<input type="date" class="form-control" name="tgl_tweet" disabled="">
-
+						<input type="hidden" class="form-control" name="tgl_tweet" disabled="">
 					</tr>
 					<tr>
 						<input type="submit" name="tweet" value="tweet" >
 						<input type="submit" name="hapus" value="hapus">
-						<input type="reset" name="reset" >
 					</tr>
 					</table>
 					</form>

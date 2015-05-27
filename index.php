@@ -47,7 +47,7 @@
 					<div class="form-group">
 							<select class="form-control" name="sebagai">
 								<option value="admin">admin</option>
-								<option value="user">user</option>
+								<option value="user">user</option>	
 								<option value="guest">guest</option>
 							</select>
 					</div>

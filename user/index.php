@@ -60,6 +60,38 @@ $user=mysql_fetch_object($sql_ngambil_user);
 			  color: #fff;
 			  background-color: #5cb85c;
 			}
+
+			/*tweet*/
+			.chat li {
+			  margin-bottom: 10px;
+			  padding-bottom: 5px;
+			  border-bottom: 1px dotted #999;
+			}
+
+			.chat {
+			  margin: 0;
+			  padding: 0;
+			  list-style: none;
+			}
+
+			.chat li .chat-body p {
+			  margin: 0;
+			}
+
+			.chat-panel .panel-body {
+			  height: 500px;
+			  overflow-y: scroll;
+			}
+
+			.panel-body {
+			  padding: 15px;
+			}
+
+			.chat li.left .chat-body {
+			  margin-left: 60px;
+			}
+
+
         </style>
 </head>
 <body>
@@ -323,26 +355,42 @@ $user=mysql_fetch_object($sql_ngambil_user);
 
 
             <!-- tweet isi -->
-	        	<div class="col-md-4" style="border: 2px solid black">
-					<form action="../include/tweetcrud.php" method="POST">
-					<table>
-					<tr>				
-						<input type="hidden" name="kode_tweet">
-						<input type="hidden" name="uname_usertweet" value="<?php echo $user->uname_user;?>">
-						<textarea type="text" name="isi" placeholder="bagaimana keuanganmu hari ini ..."></textarea>
-						<input type="hidden" class="form-control" name="tgl_tweet" disabled="">
-					</tr>
-					<tr>
-						<input type="submit" name="tweet" value="tweet" >
-						<input type="submit" name="hapus" value="hapus">
-					</tr>
-					</table>
-					</form>
-	        	<?php 
-	        	echo "<h3>buat tweet baru</h3>";
-	        	tampiltweet();
-	        	?>
-	        	</div>
+
+
+
+        	    <!-- /.panel -->
+        	    <div class="col-md-4">
+                <div class="chat-panel panel panel-success">
+                    <div class="panel-heading">
+                        <form action="../include/tweetcrud.php" method="POST">
+							<div class="form-group">			
+								<input type="hidden" name="kode_tweet">
+								<input type="hidden" name="uname_usertweet" value="<?php echo $user->uname_user;?>">
+								<textarea type="text" name="isi" rows="3" class="form-control" placeholder="bagaimana keuanganmu hari ini ..."></textarea>
+								<input type="hidden" class="form-control" name="tgl_tweet" disabled="">
+								<input type="hidden" name="foto_usertweet" value="<?php echo $user->foto_user;?>">
+							</div>
+							<span class="input-group-btn">
+	                            <button class="btn btn-default btn-circle" type="submit" name="tweet" value="tweet" >
+	                                <i class="fa fa-twitter"></i>
+	                            </button>
+	                            <?php echo "<img class=\"img-rounded img-circle pull-right\" style=\"width 35px;height:35px \" src='user_image/$user->foto_user'>"; ?>
+	                        </span>
+		
+						</form>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <ul class="chat">
+                            <?php    
+                            
+				        	tampiltweet();
+				        	?>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                <!-- /.panel .chat-panel -->
             </div>
             <!-- /.row -->
 

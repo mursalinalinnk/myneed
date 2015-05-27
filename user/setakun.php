@@ -31,7 +31,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 
 <div class="container">
 	<div class="row" style="margin-top:100px">
-		<div class="col-md-6">
+		<div class="col-md-9">
 		
 		<h2>setting akun</h2>
 		<form action="../include/setakuncrud.php" method="POST" class="form-group">
@@ -47,7 +47,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 				<tr>
 					<td>change password</td>
 					<td>:</td>
-					<td><input type="text" class="form-control" name="pass_user"  value=""  placeholder="<?php echo $user->pass_user;?>"></td>
+					<td><input type="text" class="form-control" name="pass_user"  value="<?php echo $user->pass_user;?>"  placeholder=""></td>
 				</tr>
 				<tr>
 					<td>change picture</td>
@@ -56,17 +56,18 @@ $user=mysql_fetch_object($sql_ngambil_user);
 				</tr>
 			</table>
 			<input type="submit" class="btn btn-outline btn-success" name="update">
-			<input type="reset" class="btn btn-outline btn-success">
 		</form>
 		</div>
 
-		<div class="col-md-4">
-		<tr>
-			<td><?php echo "<img class=\"img-rounded img-thumbnail\" style=\"width:200px;height:200px;float:left; \" src='user_image/$user->foto_user'>";?></td>
-		</tr>
-		<tr>
-			<h3><?php echo $user->uname_user;?></h3>
-		</tr>
+		<div class="col-md-3">
+			<div class="panel panel-default">
+				<div class="panel-body">
+				<center>
+				<?php echo "<img class=\"img-rounded img-responsive\"  src='user_image/$user->foto_user'>";?>
+				</center>
+				</div>
+				<div class="panel-footer"><h3><?php echo $user->uname_user;?></h3></div>
+			</div>
 		</div>
 	</div>
 </div>

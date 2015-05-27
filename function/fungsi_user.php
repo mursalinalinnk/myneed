@@ -233,9 +233,9 @@
 		// tweet
 	/////////////////////
 
-	function tambahtweet($kode_tweet, $uname_usertweet, $isi, $tgl_tweet){
-		$sql = "INSERT INTO tb_tweet(kode_tweet,uname_usertweet,isi,tgl_tweet)
-				VALUES ('$kode_tweet','$uname_usertweet','$isi',NOW())";
+	function tambahtweet($kode_tweet, $uname_usertweet, $isi, $tgl_tweet, $foto_usertweet){
+		$sql = "INSERT INTO tb_tweet(kode_tweet,uname_usertweet,isi,tgl_tweet,foto_usertweet)
+				VALUES ('$kode_tweet','$uname_usertweet','$isi',NOW(),'$foto_usertweet')";
 		$hasil =mysql_query($sql);
 		return($hasil);
 	}
@@ -244,12 +244,19 @@
 		$sql = "SELECT * FROM tb_tweet order by tgl_tweet desc";
 		$hasil= mysql_query($sql);
 		while ($row= mysql_fetch_array($hasil)) {
+			//echo "<img class=\"img-rounded img-circle\" style=\"width 35px;height:35px \" src='../user/user_image/$uname_usertweet->foto_usertweet'>";
+			echo "	
+				<li>
+					<div class=\"header\">
+						<i class=\"fa fa-clock-o fa-fw\"></i><small class=\"pull-left text-muted \">$row[tgl_tweet]</small>
+						<strong class=\"pull-right primary-font\">$row[uname_usertweet]</strong>
+					</div>
+					
+			";
+
 			echo "
-			<div style=\" border: 1px solid grey\">
-			<p>$row[isi]</p>
-			<p>$row[tgl_tweet]</p>
-			<p>$row[uname_usertweet]</p>
-	       	</div>
+					<p>$row[isi]</p>
+				</li>	
 			";
 		}
 		// $sql_usertweet = " SELECT * FROM tb_user WHERE uname_user->uname_usertweet";

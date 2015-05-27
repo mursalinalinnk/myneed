@@ -9,7 +9,7 @@
 			$_POST['kode_tweet'],
 			$_POST['uname_usertweet'],
 			$_POST['isi'],
-			$_POST['tgl_tweet']);
+			$_POST['foto_usertweet']);
 		header("location:../user/index.php");
 	}
 	elseif (isset($_POST['hapus'])){

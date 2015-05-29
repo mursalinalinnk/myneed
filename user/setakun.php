@@ -55,7 +55,7 @@ $user=mysql_fetch_object($sql_ngambil_user);
 					<td><input type="file" name="foto_user"  value=""></td>
 				</tr>
 			</table>
-			<input type="submit" class="btn btn-outline btn-success" name="update">
+			<input type="submit" class="btn btn-outline btn-success" name="update" value="simpan">
 		</form>
 		</div>
 

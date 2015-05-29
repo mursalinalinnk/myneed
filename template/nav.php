@@ -6,8 +6,8 @@
 	</div>
 
 	<ul class="nav navbar-nav navbar-right">			 
-			<li><a href="cat.php">edit category kebutuhan</a></li>
 			<li><a href="pend.php">pendapatan dan tabungan</a></li>
+			<li><a href="profiluser.php">data users</a></li>
 			<li><a href="setakun.php">setting akun</a></li>
 			<li><a href="../include/logout.php">logout</a></li>
 	</ul>

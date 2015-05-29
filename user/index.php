@@ -23,8 +23,9 @@ $user=mysql_fetch_object($sql_ngambil_user);
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"><!--bootstrap-->
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<!--<link rel="stylesheet" type="text/css" href="css/cerulean-bootstrap.min.css">bootstrap tema -->
-		<script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.js"></script>
+<!-- 		// <script src="../js/jquery.min.js"></script> -->
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/jquery-1.11.1.min.js"></script>
 
         <style>
         	.navbar-right {
@@ -91,7 +92,15 @@ $user=mysql_fetch_object($sql_ngambil_user);
 			  margin-left: 60px;
 			}
 
+			.btn-outline {
+			  color: inherit;
+			  background-color: transparent;
+			  transition: all .5s;
+			}
 
+			.btn-primary.btn-outline {
+			  color: #5bc0de;
+			}
         </style>
 </head>
 <body>
@@ -104,8 +113,8 @@ $user=mysql_fetch_object($sql_ngambil_user);
 	</div>
 
 	<ul class="nav navbar-nav navbar-right">			 
-			<li><a href="cat.php">edit category kebutuhan</a></li>
 			<li><a href="pend.php">pendapatan dan tabungan</a></li>
+			<li><a href="profiluser.php">data users</a></li>
 			<li><a href="setakun.php">setting akun</a></li>
 			<li><a href="../include/logout.php">logout</a></li>
 	</ul>
@@ -114,64 +123,121 @@ $user=mysql_fetch_object($sql_ngambil_user);
 
 	<div class="row" style="margin-top:100px";>
 	    <div class="col-md-12">
-	    	<div class="col-md-3">
-	        <div class="panel panel-red">
-	            <div class="panel-heading">
-	                <h3 class="panel-title">total kebutuhan pokok</h3>
-	            </div>
-	            <div class="panel-body">
-	                 <?php	
-						$sql="SELECT SUM(harga_kpok) AS total FROM tb_kpok WHERE uname_userkpok = '$_SESSION[username]'"; 
-						$hasil = mysql_query($sql); 
-						$r1=mysql_fetch_assoc($hasil); 
-						echo $r1['total'];
-					?>
-	            </div>
-	        </div>
-	        </div>
-	        <div class="col-md-3">
-	        <div class="panel panel-green">
-	            <div class="panel-heading">
-	                <h3 class="panel-title">total kebutuhan sekunder</h3>
-	            </div>
-	            <div class="panel-body">
-	                 <?php
-		
-						$sql="SELECT SUM(harga_ksek) AS total FROM tb_ksek WHERE uname_userksek = '$_SESSION[username]'"; 
-						$hasil = mysql_query($sql); 
-						$r=mysql_fetch_assoc($hasil); 
-						echo $r['total'];
-					?>
-	            </div>
-	        </div>
-	        </div>
-	        <div class="col-md-3">
-		        <div class="panel panel-primary">
+		    	<div class="col-md-3">
+		        <div class="panel panel-red">
 		            <div class="panel-heading">
-		                <h3 class="panel-title">total pendapatan</h3>
+		                <h3 class="panel-title">total kebutuhan pokok</h3>
 		            </div>
 		            <div class="panel-body">
-		                <?php
-			
-							$sql="SELECT SUM(jumlah_pend) AS total FROM tb_pend WHERE uname_userpend = '$_SESSION[username]'"; 
+		                 <?php	
+							$sql="SELECT SUM(harga_kpok) AS total FROM tb_kpok WHERE uname_userkpok = '$_SESSION[username]'"; 
 							$hasil = mysql_query($sql); 
-							$r2=mysql_fetch_assoc($hasil); 
-							echo $r2['total'];
+							$r1=mysql_fetch_assoc($hasil); 
+							echo $r1['total'];
 						?>
 		            </div>
 		        </div>
-	        </div>
-	        <div class="col-md-3">
+		        </div>
+		        <div class="col-md-3">
+		        <div class="panel panel-green">
+		            <div class="panel-heading">
+		                <h3 class="panel-title">total kebutuhan sekunder</h3>
+		            </div>
+		            <div class="panel-body">
+		                 <?php
+			
+							$sql="SELECT SUM(harga_ksek) AS total FROM tb_ksek WHERE uname_userksek = '$_SESSION[username]'"; 
+							$hasil = mysql_query($sql); 
+							$r=mysql_fetch_assoc($hasil); 
+							echo $r['total'];
+						?>
+		            </div>
+		        </div>
+		        </div>
+		        <div class="col-md-3">
+			        <div class="panel panel-primary">
+			            <div class="panel-heading">
+			                <h3 class="panel-title">total pendapatan</h3>
+			            </div>
+			            <div class="panel-body">
+			                <?php
+				
+								$sql="SELECT SUM(jumlah_pend) AS total FROM tb_pend WHERE uname_userpend = '$_SESSION[username]'"; 
+								$hasil = mysql_query($sql); 
+								$r2=mysql_fetch_assoc($hasil); 
+								echo $r2['total'];
+							?>
+			            </div>
+			        </div>
+		        </div>  
+		        <div class="col-md-3">
+			        <div class="panel panel-primary">
+			            <div class="panel-heading">
+			                <h3 class="panel-title">total tabungan</h3>
+			            </div>
+			            <div class="panel-body">
+			                <?php
+				
+								$sql="SELECT SUM(jumlah_tab) AS total FROM tb_tab WHERE uname_usertab = '$_SESSION[username]'"; 
+								$hasil = mysql_query($sql); 
+								$r2=mysql_fetch_assoc($hasil); 
+								echo $r2['total'];
+							?>
+			            </div>
+			        </div>
+		        </div>   
+		     <div class="col-md-3">
 		        <div class="panel panel-yellow">
 		            <div class="panel-heading">
 		                <h3 class="panel-title">balance</h3>
 		            </div>
 		            <div class="panel-body">
-		            	<i class"fa fa-hand-o-up">! wes ono asune</i>
+		            	<i class"fa fa-">! wes ono asune</i>
 		               
 		            </div>
 		        </div>
-	        </div>
+		     </div>
+		     <!-- /.col-md-3 -->
+
+		     <!-- start accordion -->
+
+		     <div class="col-md-9">
+		     	<div class="panel-group" id="accordion">
+
+				  <div class="panel panel-default">
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a href="#collapseOne" data-toggle="collapse" data-parent="#accordion" >
+				          Collapsible Group Item #1
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseOne" class="panel-collapse collapse in">
+				      <div class="panel-body">
+				        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				      </div>
+				    </div>
+				  </div>
+
+				  <div class="panel panel-default">
+				    <div class="panel-heading">
+				      <h4 class="panel-title">
+				        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+				          Collapsible Group Item #1
+				        </a>
+				      </h4>
+				    </div>
+				    <div id="collapseOne" class="panel-collapse collapse">
+				      <div class="panel-body">
+				        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				      </div>
+				    </div>
+				  </div>
+				</div>
+		     </div>
+		     <!-- / start accordion -->
+		     
+
 	    </div>
 	    <!-- /.col-sm-4 -->
     </div>
@@ -233,12 +299,13 @@ $user=mysql_fetch_object($sql_ngambil_user);
 											<input type="hidden" class="form-control" name="uname_userkpok" value="<?php echo $user->uname_user;?>">
 										</div>	
 										<div class="form-group">
-											<label>kategori</label>
+											<label>kategori</label><a href="cat.php"><button  type="button" class="btn pull-right btn-outline btn-primary btn-xs" ><i class="fa fa-plus fa-primary"></i></button></a>
 											<select class="form-control" name="jenis_kpok">
-												<option>--</option>
+												<option>--pilih kategori--</option>
 												<?php tampilkatkebopt(); ?>
 											</select>
 										</div>
+
 										<div class="form-group">
 											<label>nama kebutuhan</label>
 											<input type="text" class="form-control" type="text" name="nama_kpok" placeholder="spp">
@@ -262,10 +329,10 @@ $user=mysql_fetch_object($sql_ngambil_user);
 
 								<br>
 								<br>
-								<input type="submit" class="btn btn-outline btn-success" name="tambah" value="tambah">
-								<input type="submit" class="btn btn-outline btn-success" name="update" value="update">
-								<input type="submit" class="btn btn-outline btn-success" name="hapus" value="hapus">
-								<input type="reset" class="btn btn-outline btn-success">
+								<input type="submit" class="btn btn-sm btn-success" name="tambah" value="simpan">
+								<input type="submit" class="btn btn-sm btn-success" name="update" value="ubah">
+								<input type="submit" class="btn btn-sm btn-success" name="hapus" value="hapus">
+								<input type="reset" class="btn btn-sm btn-success">
 								
 								</form>
 							</div>
@@ -338,10 +405,10 @@ $user=mysql_fetch_object($sql_ngambil_user);
 									</div>									
 								</table>
 									
-								<input type="submit" class="btn btn-outline btn-success" name="tambahksek" value="tambah">
-								<input type="submit" class="btn btn-outline btn-success"name="updateksek" value="update">
-								<input type="submit"class="btn btn-outline btn-success" name="hapusksek" value="hapus">
-								<input type="reset"class="btn btn-outline btn-success">
+								<input type="submit" class="btn btn-sm btn-success" name="tambahksek" value="simpan">
+								<input type="submit" class="btn btn-sm btn-success"name="updateksek" value="ubah">
+								<input type="submit"class="btn btn-sm btn-success" name="hapusksek" value="hapus">
+								<input type="reset"class="btn btn-sm btn-success">
 								
 								</form>
 							</div>
